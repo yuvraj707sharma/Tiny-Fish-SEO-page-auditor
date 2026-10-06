@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TinyFish · SEO & AI-Readability Page Auditor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Bar Navigation -->
+    <header class="navbar">
+      <div class="brand">
+        <a href="/" class="logo-link">
+          <img src="Logo.svg" alt="TinyFish" class="brand-logo" />
+        </a>
+        <div class="nav-divider"></div>
+        <span class="nav-title">SEO & AI Page Auditor</span>
+      </div>
+
+      <div class="header-badges">
+        <span class="badge badge-orange">✨ PROFESSIONAL SEO & GEO</span>
+        <span class="badge">Fetch API</span>
+        <span class="badge">Search API</span>
+        <span class="badge">Agent API</span>
+      </div>
+    </header>
+
+    <!-- Main Audit Hero -->
+    <section class="audit-hero">
+      <div class="hero-eyebrow">
+        <span>AI SEARCH READABILITY & DISCOVERABILITY ENGINE · POWERED BY TINYFISH</span>
+      </div>
+      <h1 class="hero-title">SEO & AI-Readability Auditor</h1>
+      <p class="hero-desc">Live audit of Technical SEO, On-page hierarchy, E-E-A-T trust signals, Local NAP, AI/GEO readiness, and real TinyFish search visibility rankings without canned data.</p>
+
+      <form id="auditForm" class="audit-bar">
+        <div class="input-group input-url">
+          <label for="urlInput">Target URL</label>
+          <input type="text" id="urlInput" placeholder="e.g. jecrcuniversity.edu.in, linear.app, or simonwillison.net" required autocomplete="off">
+        </div>
+        <div class="input-group input-query">
+          <label for="queryInput">Target Search Query (Optional - auto-derived)</label>
+          <input type="text" id="queryInput" placeholder="Auto-derived from page headings & title" autocomplete="off">
+        </div>
+        <button type="submit" id="submitBtn" class="btn btn-primary">
+          <span class="btn-text">Audit Page</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </form>
+
+      <!-- Quick Samples -->
+      <div class="demo-bar">
+        <span class="demo-label">Samples:</span>
+        <button class="demo-btn" data-url="jecrcuniversity.edu.in">jecrcuniversity.edu.in</button>
+        <button class="demo-btn" data-url="linear.app">linear.app</button>
+        <button class="demo-btn" data-url="simonwillison.net">simonwillison.net</button>
+        <button class="demo-btn" data-url="theverge.com">theverge.com (AI blocked)</button>
+        <button class="demo-btn" data-url="example.com">example.com (Thin page)</button>
+      </div>
+
+      <!-- Error Notification Banner -->
+      <div id="errorBanner" class="error-banner hidden">
+        <div class="error-icon">⚠️</div>
+        <div class="error-content">
+          <strong id="errorTitle">Audit Failed</strong>
+          <p id="errorMsg">Could not reach destination URL.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section id="loadingSection" class="loading-section hidden">
+      <div class="loader-spinner"></div>
+      <h3 class="loading-title">Executing Live Multi-Endpoint Audit with TinyFish...</h3>
+      <div class="loading-steps">
+        <div class="step step-active" id="step1">1. Inspecting raw HTML & server-side token availability (Cheerio)...</div>
+        <div class="step" id="step2">2. Checking /sitemap.xml, link sampling & /robots.txt crawler rules...</div>
+        <div class="step" id="step3">3. Executing TinyFish Fetch (JS-rendered markdown) & Agent interaction check...</div>
+        <div class="step" id="step4">4. Running search queries on TinyFish Search & analyzing competitor gap...</div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <main id="resultsSection" class="results-container hidden">
+      <!-- Top Score Hero -->
+      <div class="audit-header-card">
+        <div class="audit-title-row">
+          <div>
+            <div class="card-eyebrow">AUDIT RESULT</div>
+            <h2 id="reportUrl" class="audited-url">https://example.com</h2>
+            <p id="auditTimestamp" class="audit-time">Audited just now</p>
+          </div>
+          <div class="header-action-group">
+            <button class="action-btn" id="copyReportBtn">📋 Copy Report (MD)</button>
+            <button class="action-btn" id="downloadJsonBtn">⬇️ Download JSON</button>
+            <div class="overall-score-badge">
+              <span class="big-score" id="overallScore">95</span>
+              <span class="score-sub">/100 · <strong id="gradeBadge">A</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-pill-row">
+          <span class="stat-pill pill-pass" id="statPassed">9 passed</span>
+          <span class="stat-pill pill-warn" id="statWarnings">2 warnings</span>
+          <span class="stat-pill pill-fail" id="statFailed">0 failed</span>
+          <span class="stat-divider">•</span>
+          <span class="stat-meta" id="statChecks">Checks: 12</span>
+          <span class="stat-meta" id="statFixes">Fixes: 2</span>
+          <span class="stat-meta" id="statSearchCalls">Search calls: 3</span>
+          <span class="stat-meta" id="statFetchCalls">Fetch calls: 4</span>
+        </div>
+      </div>
+
+      <!-- Top 3 Things to Fix Today -->
+      <section class="section-card" id="top3FixesSection">
+        <div class="section-header">
+          <h3>🎯 Top 3 Things to Fix Today</h3>
+          <span class="badge badge-orange-outline">Ranked by Search & Extraction Impact</span>
+        </div>
+        <div class="top3-grid" id="top3Container"></div>
+      </section>
+
+      <!-- Category Scores Grid -->
+      <div class="category-grid">
+        <div class="cat-card">
+          <div class="cat-header">
+            <span class="cat-name">Technical SEO</span>
+            <span class="cat-score" id="catTech">100</span>
+          </div>
+          <div class="cat-bar"><div class="cat-fill" id="catFillTech" style="width: 100%"></div></div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-header">
+            <span class="cat-name">On-page SEO</span>
+            <span class="cat-score" id="catOnPage">87</span>
+          </div>
+          <div class="cat-bar"><div class="cat-fill" id="catFillOnPage" style="width: 87%"></div></div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-header">
+            <span class="cat-name">Content & E-E-A-T</span>
+            <span class="cat-score" id="catContent">100</span>
+          </div>
+          <div class="cat-bar"><div class="cat-fill" id="catFillContent" style="width: 100%"></div></div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-header">
+            <span class="cat-name">AI & GEO Readiness</span>
+            <span class="cat-score" id="catAiGeo">100</span>
+          </div>
+          <div class="cat-bar"><div class="cat-fill" id="catFillAiGeo" style="width: 100%"></div></div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-header">
+            <span class="cat-name">Search Visibility</span>
+            <span class="cat-score" id="catVisibility">100</span>
+          </div>
+          <div class="cat-bar"><div class="cat-fill" id="catFillVisibility" style="width: 100%"></div></div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="report-tabs">
+        <button class="tab-btn active" data-tab="tab-checks">📋 Standard SEO Checks</button>
+        <button class="tab-btn" data-tab="tab-search">🔎 Live Search & Competitors</button>
+        <button class="tab-btn" data-tab="tab-bridge">🔗 Why Readability Affects Visibility</button>
+        <button class="tab-btn" data-tab="tab-eeat">🏆 E-E-A-T & SERP Preview</button>
+        <button class="tab-btn" data-tab="tab-codegen">🛠️ Page-Derived Fixes</button>
+        <button class="tab-btn" data-tab="tab-scope">🔭 Beyond Single URL</button>
+        <button class="tab-btn" data-tab="tab-evidence">📡 Evidence & Payload</button>
+      </nav>
+
+      <!-- TAB 1: Detailed Checks -->
+      <section id="tab-checks" class="tab-content active">
+        <div class="checks-list" id="checksContainer"></div>
+      </section>
+
+      <!-- TAB 2: Search Visibility & Content Gap -->
+      <section id="tab-search" class="tab-content">
+        <div class="search-hero-card">
+          <div class="section-header" style="margin-bottom: 8px;">
+            <h3>Live Search Queries Tested on TinyFish Search</h3>
+            <span class="badge">Branded + Derived Non-Branded</span>
+          </div>
+          <div class="table-responsive">
+            <table class="fixes-table">
+              <thead>
+                <tr>
+                  <th>Query</th>
+                  <th>Type / Intent</th>
+                  <th>Rank Position</th>
+                  <th>Source / Rationale</th>
+                  <th>Snippet Quality</th>
+                </tr>
+              </thead>
+              <tbody id="searchQueriesTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Keyword Cannibalization Alert -->
+        <div id="cannibalizationContainer" class="cannibalization-card" style="margin-top: 16px;"></div>
+
+        <div class="competitor-section" style="margin-top: 20px;">
+          <h3 class="section-subheading">Real Competitor Content Gap (via TinyFish Fetch)</h3>
+          <div class="gap-alert-box" id="gapAlertBox" style="margin-bottom: 16px;"></div>
+          <div class="competitor-grid" id="competitorsList"></div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Visibility Bridge -->
+      <section id="tab-bridge" class="tab-content">
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Why Your Page Readability Affects Search Visibility</h3>
+            <span class="badge badge-orange-outline">Verified Audit Run Insights</span>
+          </div>
+          <div class="bridge-grid" id="bridgeContainer"></div>
+        </div>
+      </section>
+
+      <!-- TAB 4: E-E-A-T & SERP Preview -->
+      <section id="tab-eeat" class="tab-content">
+        <!-- SERP Snippet Preview -->
+        <div class="section-card" style="margin-bottom: 20px;">
+          <div class="section-header">
+            <h3>Google Search Snippet Preview (~600px desktop view)</h3>
+            <span class="badge" id="serpPixelBadge">Est. ~450px width</span>
+          </div>
+          <div class="serp-preview-box">
+            <div class="serp-url" id="serpUrlDisplay">https://example.com</div>
+            <div class="serp-title" id="serpTitleDisplay">Example Title</div>
+            <div class="serp-desc" id="serpDescDisplay">Example description text...</div>
+          </div>
+        </div>
+
+        <!-- E-E-A-T Signals Matrix -->
+        <div class="section-card" style="margin-bottom: 20px;">
+          <div class="section-header">
+            <h3>E-E-A-T Trust & Credibility Signals</h3>
+            <span class="badge badge-orange-outline" id="ymylBadge">Standard Niche</span>
+          </div>
+          <div class="eeat-grid" id="eeatContainer"></div>
+        </div>
+
+        <!-- Local SEO (Conditional) -->
+        <div class="section-card" id="localSeoCard" style="display: none;">
+          <div class="section-header">
+            <h3>Local SEO & NAP Consistency</h3>
+            <span class="badge">Organization / Local Business Detected</span>
+          </div>
+          <div class="local-grid" id="localContainer"></div>
+        </div>
+      </section>
+
+      <!-- TAB 5: Page-Derived Fixes -->
+      <section id="tab-codegen" class="tab-content">
+        <div class="fixes-grid">
+          <!-- Fix 1: AI Answer Capsule -->
+          <div class="fix-card">
+            <div class="fix-header">
+              <h4>1. AI-Extractable Answer Capsule (Hero Snippet)</h4>
+              <button class="copy-btn" data-copy="answerCapsule">Copy Snippet</button>
+            </div>
+            <p class="fix-desc">Optimized 40-60 word definitive statement engineered for SearchGPT and Perplexity citation synthesis.</p>
+            <div class="code-box" id="answerCapsuleCode"></div>
+          </div>
+
+          <!-- Fix 2: JSON-LD Schema -->
+          <div class="fix-card">
+            <div class="fix-header">
+              <h4>2. Schema.org JSON-LD Structured Data</h4>
+              <button class="copy-btn" data-copy="schemaCode">Copy JSON-LD</button>
+            </div>
+            <p class="fix-desc">Embed into HTML <code>&lt;head&gt;</code> to grant AI models instant entity knowledge graph recognition.</p>
+            <pre class="code-box" id="schemaCode"></pre>
+          </div>
+
+          <!-- Fix 3: Heading Blueprint -->
+          <div class="fix-card">
+            <div class="fix-header">
+              <h4>3. Semantic Heading Hierarchy Blueprint</h4>
+            </div>
+            <p class="fix-desc">Restructured H1/H2 blueprint derived from page content to maximize RAG retrieval accuracy.</p>
+            <div id="headingPlanList" class="heading-plan-list"></div>
+          </div>
+
+          <!-- Fix 4: llms.txt Directive -->
+          <div class="fix-card">
+            <div class="fix-header">
+              <h4>4. AI Crawler Content Index (/llms.txt)</h4>
+              <button class="copy-btn" data-copy="llmsTxtCode">Copy /llms.txt</button>
+            </div>
+            <p class="fix-desc">Host at <code>/llms.txt</code> to provide token-efficient guidance to autonomous AI agents.</p>
+            <pre class="code-box" id="llmsTxtCode"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: Beyond Single URL (Out of Scope Reference) -->
+      <section id="tab-scope" class="tab-content">
+        <div class="section-card">
+          <div class="section-header">
+            <h3>Beyond a Single-URL Audit: Sitewide & Off-Page SEO Dimensions</h3>
+            <span class="badge">Reference Guide for Enterprise SEO Auditing</span>
+          </div>
+          <p class="section-desc" style="color: #999; margin-bottom: 16px;">These critical SEO factors require multi-page crawling, server access, or external backlink index databases. Below is a guide on why they matter and which specialized tools measure them:</p>
+          <div class="scope-grid" id="scopeContainer"></div>
+        </div>
+      </section>
+
+      <!-- TAB 7: Evidence & Data Consistency -->
+      <section id="tab-evidence" class="tab-content">
+        <div class="section-card" style="margin-bottom: 20px;">
+          <div class="section-header">
+            <h3>Data Consistency & Source Verification</h3>
+            <span class="badge">Raw DOM vs. Fetch Markdown</span>
+          </div>
+          <div class="consistency-grid" id="consistencyContainer"></div>
+        </div>
+
+        <div class="evidence-card">
+          <div class="pane-header">
+            <h4>Live API Payload Inspection</h4>
+            <button class="copy-btn" id="copyEvidenceBtn">Copy Raw JSON</button>
+          </div>
+          <pre class="code-preview" id="evidenceJsonViewer"></pre>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Generated by <strong>tinyfish-seo-auditor</strong> · Powered by <strong>TinyFish Fetch</strong> (JS-rendered extraction) + <strong>TinyFish Search</strong> (live ranking & competitor analysis) + <strong>TinyFish Agent</strong> (interaction verification).</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
