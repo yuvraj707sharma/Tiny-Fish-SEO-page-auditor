@@ -25,7 +25,7 @@ app.get('/api/health', (req, res) => {
     status: 'healthy',
     timestamp: new Date().toISOString(),
     service: 'TinyFish SEO Page Auditor',
-    checks: 11
+    checks: 17
   });
 });
 
