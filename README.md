@@ -128,12 +128,12 @@ Run an audit on any live URL directly in your terminal:
 # General usage:
 npm run cli -- <URL> [optional-search-query]
 
-# Real examples:
+# Real live benchmarks:
+npm run cli -- https://www.semrush.com/
+npm run cli -- https://www.tinyfish.ai/
+npm run cli -- https://webscraper.io/
 npm run cli -- juhelp.in
 npm run cli -- jecrcuniversity.edu.in
-npm run cli -- linear.app
-npm run cli -- theverge.com
-npm run cli -- example.com
 ```
 
 ### 5. Run Deterministic Unit Tests
@@ -156,12 +156,11 @@ This project is built for **100% portability** across environments:
 
 | Target URL | Archetype | Score / Grade | Headings | Schema Status | AI Robots Policy | Search Visibility |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **`https://www.semrush.com/`** | SaaS / SEO Platform | **84 / 100 (B)** | `h1 x1, h2 x12, h3 x40` (53 total) | 1 block (`PostalAddress`) | Allowed (`/llms.txt` 14.9KB) | `4/5` Top 10 (#1 for *"Semrush"*) |
+| **`https://www.tinyfish.ai/`** | Web Infra for AI Agents | **84 / 100 (B)** | `h1 x1, h2 x14, h3 x5` (20 total) | 2 blocks (`SoftwareApplication`, `FAQPage`) | Allowed (`/llms.txt` 37.6KB) | `3/5` Top 10 (#1 for *"Tinyfish"*) |
+| **`https://webscraper.io/`** | SaaS / Scraping Platform| **90 / 100 (A)** | `h1 x1, h2 x17, h3 x26` (50 total) | 0 blocks (Fix generated) | Allowed (`/llms.txt` 924B) | `4/5` Top 10 (#1 for *"Web Scraper Cloud"*) |
 | **`juhelp.in`** | App Landing Page | **78 / 100 (C)** | `h1 x1, h2 x11, h3 x4` (25 total) | Missing (Fix generated) | HTTP 404 (Allowed) | `#1` for *"Ju Help"* |
 | **`jecrcuniversity.edu.in`** | Educational Institution | **78 / 100 (C)** | `h1 x4, h2 x28, h3 x7` (61 total) | 2 blocks (`CollegeOrUniversity`) | Allowed | `#1` for *"JECRC University"* |
-| **`linear.app`** | SaaS Platform | **85 / 100 (B)** | `h1 x1, h2 x7, h3 x7` (16 total) | 0 blocks (penalized) | Allowed (`/llms.txt` 10KB) | Top 3 for product dev terms |
-| **`theverge.com`** | Blog / Editorial | **74 / 100 (C)** | `h1 x0, h2 x6, h3 x0` (7 total) | 2 blocks (`NewsMediaOrganization`) | **Blocked 8 AI bots** | Unranked for H2 sections |
-| **`example.com`** | General Website | **62 / 100 (C)** | `h1 x0, h2 x0, h3 x0` (0 total) | 0 blocks (Thin page) | HTTP 404 (Allowed) | `#1` for *"Example"* |
-| **React SPA (TodoMVC)** | Single Page App | **56 / 100 (D)** | `h1 x0, h2 x0, h3 x0` (0 total) | 0 blocks | SSR Penalty (JS required) | Ranked for brand |
 
 ---
 
