@@ -1,0 +1,54 @@
+# TinyFish SEO & AI-Readability Page Auditor
+
+> A production-grade, zero-hallucination SEO and Generative Engine Optimization (GEO) page auditor. Powered by TinyFish Fetch, Search, and Agent APIs to evaluate web page readability, discoverability, and indexing for modern search engines (Google, Bing) and AI search agents (SearchGPT, Perplexity, Claude, Gemini).
+
+## Overview
+The TinyFish SEO & AI-Readability Page Auditor runs a deep 17-point audit across 6 core categories. It analyzes raw HTML DOM tokens, compares client-side rendering (CSR) against headless JS-rendered markdown, queries live multi-intent SERPs for real rank positions, expands dynamic DOM accordions via autonomous browser agents, and generates 100% page-derived JSON-LD structured data and configuration fixes.
+
+## Key Capabilities
+- **Dual-Engine Rendering & SSR Diffing**: Uses Cheerio for static server-side HTML token extraction and TinyFish Fetch for headless JS-rendered markdown, quantifying JavaScript dependency and indexing penalties for LLM bots.
+- **Contextual Search Visibility**: Automatically derives branded and non-branded queries disambiguated by page archetype, testing live rank positions and SERP snippets via TinyFish Search.
+- **Topical Competitor Gap Analysis**: Scrapes top organic non-social competitors in parallel to extract missing multi-word topical keywords.
+- **Browser Automation Agent**: Employs TinyFish Agent to traverse collapsed accordions, dynamic tabs, and FAQ sections, reporting content hidden from static scrapers.
+- **Zero-Hallucination Fix Generator**: Produces ready-to-deploy Schema.org JSON-LD (WebSite, Organization, SoftwareApplication, MobileApplication, CollegeOrUniversity, FAQPage), optimized robots.txt, and canonical meta tags.
+- **Deterministic Evaluation**: Implements no-data scoring safeguards—checks that cannot be determined are excluded rather than assigned false perfect scores.
+
+## 17 Audit Checks Across 6 Categories
+1. **Technical SEO**:
+   - Status Code & Redirect Chain (HTTP 200 validation, hop counts)
+   - Canonical Link Tag (Master URL consistency)
+   - Meta Robots Indexability (noindex/nofollow auditing)
+   - Open Graph & Twitter Cards (Rich snippet previews)
+   - HTTPS & Mixed Content (Transport security)
+   - XML Sitemap Indexing (Follows sitemapindex trees, cap at 500+)
+   - Mobile Viewport & Hreflang (Mobile-first readiness)
+2. **On-Page SEO**:
+   - Heading Hierarchy (Single H1 enforcement, logical H2/H3 nesting)
+   - Title & Meta Description Lengths (Pixel limits: Title 15-65 chars, Desc 70-160 chars)
+   - Title Intent Alignment & Automated Rewrite (<60 chars target)
+   - Image Alt Text & Decorative Tag Separation (Empty alt="" permitted for decorative images)
+   - Internal Links & Section Anchor Validation
+3. **Content & E-E-A-T**:
+   - E-E-A-T & Trust Signals (About, Contact, Privacy, Author Bylines)
+   - Content Substance & Word Count (Thin content detection <300 words)
+4. **AI & GEO Readiness**:
+   - Server-Side Rendering (SSR) static token accessibility
+   - AI Crawler Access Policy (robots.txt permissions for GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+   - Schema.org Structured Data (JSON-LD validation & entity graph)
+   - /llms.txt AI Content Map (Byte size verification & index shortcuts)
+5. **Search Visibility**:
+   - Live Search Rankings & Multi-Intent Fit (TinyFish Search)
+   - Competitor Content Gap Extraction (Semantic coverage)
+6. **Local SEO (Conditional)**:
+   - Name, Address, Phone (NAP) & Google Maps verification for local entities.
+
+## API Endpoints
+- `GET /api/health`: Health status, timestamp, and active check count.
+- `POST /api/audit`: Executes live audit. Accepts JSON `{ "url": "string", "targetQuery": "optional string" }` and returns full audit report JSON.
+
+## Key Links & Resources
+- Live Web Application: https://tiny-fish-seo-page-auditor.onrender.com/
+- Open Source Repository: https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor
+- Full LLM Documentation: https://tiny-fish-seo-page-auditor.onrender.com/llms-full.txt
+- Official TinyFish Platform: https://tinyfish.ai/
+- TinyFish API Documentation: https://agent.tinyfish.ai/

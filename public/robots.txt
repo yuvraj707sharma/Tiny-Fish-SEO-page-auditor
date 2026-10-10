@@ -1,0 +1,49 @@
+# TinyFish SEO & AI-Readability Page Auditor - Robots Configuration
+# https://tiny-fish-seo-page-auditor.onrender.com/
+
+User-agent: *
+Allow: /
+
+# Dedicated AI Search Bots & LLM Web Crawlers (Full Crawling & Indexing Permitted)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemaps & AI Index
+Sitemap: https://tiny-fish-seo-page-auditor.onrender.com/sitemap.xml
+# AI Context Map: https://tiny-fish-seo-page-auditor.onrender.com/llms.txt

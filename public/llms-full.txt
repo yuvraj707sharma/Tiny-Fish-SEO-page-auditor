@@ -1,0 +1,76 @@
+# TinyFish SEO & AI-Readability Page Auditor — Full Technical Documentation
+
+## Executive Summary
+TinyFish SEO & AI-Readability Page Auditor is a developer-centric, full-stack SEO and Generative Engine Optimization (GEO) diagnostic suite built with TypeScript, Node.js, Express, and TinyFish APIs. The application measures how easily autonomous AI agents (SearchGPT, Perplexity AI, Google Gemini, Anthropic Claude) and traditional search crawlers can parse, extract, index, and cite website content.
+
+## Architecture
+```
+                       ┌─────────────────────────┐
+                       │   Target URL / Domain   │
+                       └────────────┬────────────┘
+                                    │
+           ┌────────────────────────┼────────────────────────┐
+           ▼                        ▼                        ▼
+┌─────────────────────┐  ┌─────────────────────┐  ┌─────────────────────┐
+│   TinyFish Fetch    │  │   TinyFish Search   │  │   TinyFish Agent    │
+│ (JS Render & Diff)  │  │ (Live SERP & Gaps)  │  │(Browser Automation) │
+└──────────┬──────────┘  └──────────┬──────────┘  └──────────┬──────────┘
+           │                        │                        │
+           │ • JS dependency %      │ • Live brand & non-    │ • Expands accordions
+           │ • SSR consistency diff │   branded rankings     │ • Extracts hidden QA
+           │ • Competitor page text │ • Topical content gaps │ • Diff vs static DOM
+           └────────────────────────┼────────────────────────┘
+                                    │
+                                    ▼
+                   ┌─────────────────────────────────┐
+                   │  Master Auditor Engine & Report │
+                   │ (17 Checks · Top 3 · Fix Gen)   │
+                   └─────────────────────────────────┘
+```
+
+## Detailed Scoring Rubric & Weights
+1. **Technical SEO** (Weight: 20%)
+   - Status Code & Redirect Chain (weight: 6)
+   - Canonical Link Tag (weight: 4)
+   - Meta Robots Indexability (weight: 5)
+   - Open Graph & Twitter Cards (weight: 4)
+   - HTTPS & Mixed Content (weight: 5)
+   - XML Sitemap Indexing (weight: 5)
+   - Mobile Viewport Meta (weight: 4)
+
+2. **On-Page SEO** (Weight: 25%)
+   - Heading Hierarchy (weight: 6)
+   - Title & Meta Description Length (weight: 6)
+   - Title Intent Alignment & Rewrite (weight: 5)
+   - Image Alt Text & Decorative Tags (weight: 5)
+   - Internal Links & Navigation (weight: 5)
+
+3. **Content & E-E-A-T** (Weight: 20%)
+   - E-E-A-T Trust Signals (weight: 8)
+   - Content Substance & Word Count (weight: 6)
+
+4. **AI & GEO Readiness** (Weight: 20%)
+   - Server-Side Rendering static token accessibility (weight: 7)
+   - AI Crawler Bot Permissions in robots.txt (weight: 6)
+   - Schema.org JSON-LD Structured Data (weight: 7)
+   - /llms.txt AI Content Map (weight: 4)
+
+5. **Search Visibility** (Weight: 15%)
+   - Live Search Rankings & Multi-Intent Fit (weight: 8)
+   - Competitor Content Gap Analysis (weight: 6)
+
+6. **Local SEO (Conditional)**
+   - Name, Address, Phone (NAP) & Google Maps verification.
+
+## Real Benchmark Audits
+- **https://www.semrush.com/**: Overall Score 84/100 (Grade B) · Headings: 53 · Schema: PostalAddress · AI Robots: Allowed · /llms.txt: 14.9KB · Search: 4/5 Top 10.
+- **https://www.tinyfish.ai/**: Overall Score 84/100 (Grade B) · Headings: 20 · Schema: SoftwareApplication, FAQPage · AI Robots: Allowed · /llms.txt: 37.6KB · Search: 3/5 Top 10.
+- **https://webscraper.io/**: Overall Score 90/100 (Grade A) · Headings: 50 · Schema: Missing in raw DOM (Fix generated) · AI Robots: Allowed · /llms.txt: 924B · Search: 4/5 Top 10.
+- **juhelp.in**: Overall Score 78/100 (Grade C) · Archetype: App Landing Page · Headings: 25 · Search: #1 for "Ju Help".
+- **jecrcuniversity.edu.in**: Overall Score 78/100 (Grade C) · Archetype: Educational Institution · Headings: 61 · Schema: CollegeOrUniversity · Search: #1 for "JECRC University".
+
+## Contact & Open Source
+- Live Application: https://tiny-fish-seo-page-auditor.onrender.com/
+- GitHub Repository: https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor
+- Author: Yuvraj Sharma
+- License: MIT

@@ -1,15 +1,28 @@
 # 🐟 TinyFish SEO & AI-Readability Page Auditor
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7.svg?style=flat&logo=render)](https://tiny-fish-seo-page-auditor.onrender.com/)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Open%20Source-181717.svg?style=flat&logo=github)](https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
 [![TinyFish API](https://img.shields.io/badge/Powered%20By-TinyFish%20APIs-ff6600.svg)](https://tinyfish.ai/)
 
 > **A professional-grade, live, and actionable SEO & AI-readability auditor for any URL.**  
 > 🌐 **Live Demo:** [https://tiny-fish-seo-page-auditor.onrender.com/](https://tiny-fish-seo-page-auditor.onrender.com/)  
+> 💻 **GitHub Repository:** [https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor](https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor)  
 > Powered by **TinyFish Fetch**, **TinyFish Search**, and **TinyFish Agent** (real browser automation).  
 > Designed for modern search engines (Google, Bing) and LLM search answer engines (SearchGPT, Perplexity, Gemini, Claude).
+
+---
+
+## 🤖 AI Search & Generative Engine Optimization (GEO) Infrastructure
+
+This project is architected for maximum discoverability and citation accuracy across modern AI answer engines:
+
+- **`/llms.txt` & `/llms-full.txt`**: Standardized Markdown summaries following the [llmstxt.org](https://llmstxt.org) standard, allowing autonomous AI agents to ingest capabilities with zero token overhead.
+- **AI-Permissive `/robots.txt`**: Dedicated crawler policies granting full access to `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `Amazonbot`, `Cohere-ai`, and `CCBot`.
+- **Schema.org Knowledge Graph**: Rich JSON-LD structured data embedding `WebSite`, `SoftwareApplication`, `Organization`, and an interactive `FAQPage` answering common search queries.
+- **XML Sitemap (`/sitemap.xml`)**: Automated indexing of main application pages, health diagnostics, and LLM text endpoints.
 
 ---
 

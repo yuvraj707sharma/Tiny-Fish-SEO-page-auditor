@@ -3,11 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TinyFish · SEO & AI-Readability Page Auditor</title>
+  
+  <!-- Primary Meta Tags -->
+  <title>TinyFish · SEO & AI-Readability Page Auditor | Live GEO & Search Analysis</title>
+  <meta name="title" content="TinyFish · SEO & AI-Readability Page Auditor | Live GEO & Search Analysis">
+  <meta name="description" content="Audit any live URL for Google SEO and AI search engines (SearchGPT, Perplexity, Claude, Gemini). Powered by TinyFish Fetch (JS-render diffing), Search (live rankings), and Agent browser automation.">
+  <meta name="keywords" content="SEO Auditor, AI Readability, GEO, Generative Engine Optimization, TinyFish, SearchGPT, Perplexity, Schema Generator, Robots.txt, llms.txt, Website Audit, Technical SEO">
+  <meta name="author" content="Yuvraj Sharma">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://tiny-fish-seo-page-auditor.onrender.com/">
+  
+  <!-- LLMs.txt Alternate Link for AI Crawlers -->
+  <link rel="alternate" type="text/markdown" title="LLMs.txt" href="/llms.txt">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tiny-fish-seo-page-auditor.onrender.com/">
+  <meta property="og:site_name" content="TinyFish SEO Auditor">
+  <meta property="og:title" content="TinyFish · SEO & AI-Readability Page Auditor">
+  <meta property="og:description" content="Live professional audit for traditional Google search and modern AI answer engines. 17 checks, live SERP visibility, and zero-hallucination fixes.">
+  <meta property="og:image" content="https://tiny-fish-seo-page-auditor.onrender.com/Logo.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tiny-fish-seo-page-auditor.onrender.com/">
+  <meta property="twitter:title" content="TinyFish · SEO & AI-Readability Page Auditor">
+  <meta property="twitter:description" content="Audit any URL for Google SEO and AI search bots (SearchGPT, Perplexity, Claude). Powered by TinyFish APIs.">
+  <meta property="twitter:image" content="https://tiny-fish-seo-page-auditor.onrender.com/Logo.svg">
+
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data Graph for AI Knowledge Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://tiny-fish-seo-page-auditor.onrender.com/#website",
+        "url": "https://tiny-fish-seo-page-auditor.onrender.com/",
+        "name": "TinyFish SEO & AI-Readability Page Auditor",
+        "description": "Professional-grade, live, and actionable SEO & AI-readability auditor powered by TinyFish Fetch, Search, and Agent endpoints.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://tiny-fish-seo-page-auditor.onrender.com/#software",
+        "name": "TinyFish SEO & AI-Readability Page Auditor",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Dual-engine SEO and Generative Engine Optimization (GEO) diagnostic suite with 17 checks, live SERP rankings, and page-derived schema fixes.",
+        "author": {
+          "@type": "Person",
+          "name": "Yuvraj Sharma"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://tiny-fish-seo-page-auditor.onrender.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the TinyFish SEO & AI-Readability Page Auditor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is an open-source, full-stack SEO and GEO audit tool that evaluates web page readability and ranking potential for traditional search engines (Google, Bing) and AI search agents (SearchGPT, Perplexity, Claude, Gemini)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does TinyFish simulate AI search engine indexing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TinyFish Fetch compares raw HTML static tokens against headless JS-rendered markdown to detect client-side rendering penalties, while TinyFish Search tests live rank positions and organic snippet representation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Generative Engine Optimization (GEO)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "GEO is the practice of structuring website content, /llms.txt files, Schema.org JSON-LD, and SSR text so AI search answer engines can easily parse, understand, and cite your pages in conversational answers."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="app-container">
@@ -21,11 +113,20 @@
         <span class="nav-title">SEO & AI Page Auditor</span>
       </div>
 
-      <div class="header-badges">
-        <span class="badge badge-orange">✨ PROFESSIONAL SEO & GEO</span>
-        <span class="badge">Fetch API</span>
-        <span class="badge">Search API</span>
-        <span class="badge">Agent API</span>
+      <div class="header-actions">
+        <div class="header-badges">
+          <span class="badge badge-orange">✨ PROFESSIONAL SEO & GEO</span>
+          <span class="badge">Fetch API</span>
+          <span class="badge">Search API</span>
+          <span class="badge">Agent API</span>
+        </div>
+        <a href="https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor" target="_blank" rel="noopener noreferrer" class="btn-github" title="View Source Code on GitHub">
+          <svg class="github-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+          <span class="github-star-badge">★ Open Source</span>
+        </a>
       </div>
     </header>
 
@@ -40,7 +141,7 @@
       <form id="auditForm" class="audit-bar">
         <div class="input-group input-url">
           <label for="urlInput">Target URL</label>
-          <input type="text" id="urlInput" placeholder="e.g. jecrcuniversity.edu.in, linear.app, or simonwillison.net" required autocomplete="off">
+          <input type="text" id="urlInput" placeholder="e.g. https://www.tinyfish.ai/ or https://www.semrush.com/" required autocomplete="off">
         </div>
         <div class="input-group input-query">
           <label for="queryInput">Target Search Query (Optional - auto-derived)</label>
@@ -54,12 +155,12 @@
 
       <!-- Quick Samples -->
       <div class="demo-bar">
-        <span class="demo-label">Samples:</span>
+        <span class="demo-label">Live Benchmarks:</span>
+        <button class="demo-btn" data-url="https://www.semrush.com/">semrush.com</button>
+        <button class="demo-btn" data-url="https://www.tinyfish.ai/">tinyfish.ai</button>
+        <button class="demo-btn" data-url="https://webscraper.io/">webscraper.io</button>
+        <button class="demo-btn" data-url="juhelp.in">juhelp.in</button>
         <button class="demo-btn" data-url="jecrcuniversity.edu.in">jecrcuniversity.edu.in</button>
-        <button class="demo-btn" data-url="linear.app">linear.app</button>
-        <button class="demo-btn" data-url="simonwillison.net">simonwillison.net</button>
-        <button class="demo-btn" data-url="theverge.com">theverge.com (AI blocked)</button>
-        <button class="demo-btn" data-url="example.com">example.com (Thin page)</button>
       </div>
 
       <!-- Error Notification Banner -->
@@ -336,7 +437,14 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Generated by <strong>tinyfish-seo-auditor</strong> · Powered by <strong>TinyFish Fetch</strong> (JS-rendered extraction) + <strong>TinyFish Search</strong> (live ranking & competitor analysis) + <strong>TinyFish Agent</strong> (interaction verification).</p>
+      <div class="footer-links">
+        <a href="/llms.txt" target="_blank" class="footer-link">📄 /llms.txt (AI Index)</a>
+        <a href="/robots.txt" target="_blank" class="footer-link">🤖 /robots.txt</a>
+        <a href="/sitemap.xml" target="_blank" class="footer-link">🗺️ /sitemap.xml</a>
+        <a href="/api/health" target="_blank" class="footer-link">🩺 /api/health</a>
+        <a href="https://github.com/yuvraj707sharma/Tiny-Fish-SEO-page-auditor" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ GitHub Open Source</a>
+      </div>
+      <p>Built with <strong>TypeScript & Express</strong> · Powered by <strong>TinyFish Fetch</strong> (JS-rendered extraction) + <strong>TinyFish Search</strong> (live ranking & competitor analysis) + <strong>TinyFish Agent</strong> (interaction verification).</p>
     </footer>
   </div>
 

@@ -81,9 +81,50 @@ body {
   letter-spacing: -0.01em;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .header-badges {
   display: flex;
   gap: 8px;
+}
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-github:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #52525b;
+  transform: translateY(-1px);
+}
+
+.github-icon {
+  fill: currentColor;
+}
+
+.github-star-badge {
+  background: rgba(255, 102, 0, 0.15);
+  color: var(--accent-orange);
+  border: 1px solid rgba(255, 102, 0, 0.3);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
 }
 
 .badge {
@@ -1057,7 +1098,27 @@ body {
   font-size: 13px;
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
-  padding-top: 22px;
+  padding-top: 24px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-orange);
 }
 
 .hidden { display: none !important; }
