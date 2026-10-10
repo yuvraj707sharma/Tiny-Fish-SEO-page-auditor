@@ -48,6 +48,23 @@ app.post('/api/audit', async (req, res) => {
   }
 });
 
+// Explicit AI and Crawler Context Routes
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').sendFile(path.join(__dirname, '../public/robots.txt'));
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml').sendFile(path.join(__dirname, '../public/sitemap.xml'));
+});
+
+app.get('/llms.txt', (req, res) => {
+  res.type('text/plain; charset=utf-8').sendFile(path.join(__dirname, '../public/llms.txt'));
+});
+
+app.get('/llms-full.txt', (req, res) => {
+  res.type('text/plain; charset=utf-8').sendFile(path.join(__dirname, '../public/llms-full.txt'));
+});
+
 // Fallback to index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
