@@ -24,26 +24,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Sample Buttons
+  // Sample Buttons: Only load URL into input field; DO NOT auto-trigger audit
   const demoBtns = document.querySelectorAll('.demo-btn');
   demoBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const sampleUrl = btn.getAttribute('data-url');
       if (sampleUrl) {
         urlInput.value = sampleUrl;
         queryInput.value = '';
-        runLiveAudit(sampleUrl, '');
+        demoBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        hideError();
+        urlInput.focus();
       }
     });
   });
 
-  // Form Submit
+  // Form Submit: Only triggers when user explicitly clicks "Audit Page" (or submits)
   auditForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const url = urlInput.value.trim();
     const query = queryInput.value.trim();
-    if (!url) return;
+    if (!url) {
+      showError('Target URL Required', 'Please enter a target website URL or tap one of the benchmarks, then click "Audit Page".');
+      urlInput.focus();
+      return;
+    }
     runLiveAudit(url, query);
+    
+    // On mobile, scroll down to the loading indicator
+    if (loadingSection) {
+      loadingSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   });
 
   // Copy Buttons
@@ -171,6 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentReport = report;
       renderReport(report);
       resultsSection.classList.remove('hidden');
+      setTimeout(() => {
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
     } catch (err) {
       clearInterval(interval);
       loadingSection.classList.add('hidden');
